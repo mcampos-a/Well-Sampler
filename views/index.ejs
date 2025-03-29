@@ -25,6 +25,18 @@
     </form>
 
     <ul>
+        <% wellList.forEach(well => { %>
+            <li>
+                <div><%= well.wellName %></div>
+                <div><%= well.cSWL %></div>
+                <a href="">Edit</a>
+                <a href="">Remove</a>
+            </li>
+        <% }) %>
+        
+    </ul>
+
+    <ul>
         <!-- ADD EJS LATER -->
     </ul>
 </body>
