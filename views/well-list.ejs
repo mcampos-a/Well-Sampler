@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well List</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Well List Page</h1>
+
+    <form action="/new" method="POST">
+        <label for="wellName">Enter Well Name:</label>
+        <input type="text" name="wellName" placeholder="e.g. WR-201A">
+        <br>
+        <label for="dateConstructed">Enter Well Construction Date:</label>
+        <input type="date" name="dateConstructed" placeholder="1992">
+        <br>
+        <label for="swl">Enter Staic Water Level:</label>
+        <input type="number" name="swl" value = 0.00 min="0" placeholder="210" step="0.01">
+        <br>
+        <label for="correction">Enter Correction:</label>
+        <input type="number" name="correction" value = 0.00 step="0.01">
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+
+    <ul>
+        <% wellList.forEach(well => { %>
+            <li>
+                <div><%= well.wellName %></div>
+                <div><%= well.cSWL %></div>
+                <a href="/edit/<%= well._id %>">Edit</a>
+                <a href="/edit/remove/<%= well._id %>">Remove</a>
+            </li>
+        <% }) %>
+        
+    </ul>
+
+    <ul>
+        <!-- ADD EJS LATER -->
+    </ul>
+</body>
+</html>

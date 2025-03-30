@@ -11,10 +11,33 @@ module.exports = {
         }
     },
     deleteWell: async (req, res) => {
-        
+        const wellId = req.params.id
+        try {
+            const result = await WellList.findByIdAndDelete(wellId)
+            console.log(`Well ${result.wellName} has been deleted`)
+            res.redirect('/')
+        } catch (err){
+            console.log(err)
+        }
     },
     updateWell: async (req, res) => {
-        
+        const wellId = req.params.id
+        try {
+            const update = await WellList.findByIdAndUpdate(
+                wellId,
+                {
+                    wellName: req.body.wellName,
+                    swl: req.body.swl,
+                    correction: req.body.correction,
+                    dateConstructed: req.body.dateConstructed
+                }
+            )
+            console.log(update)
+            console.log(`Well ${update.wellName} has been updated`)
+            res.redirect('/')
+        } catch (err){
+            console.log(err)
+        }
     }
 
 

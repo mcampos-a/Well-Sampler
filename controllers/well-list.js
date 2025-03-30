@@ -4,7 +4,7 @@ module.exports = {
     getIndex : async (req, res) => {
         try {
             const wells = await WellList.find()
-            res.render('index.ejs', {wellList: wells})
+            res.render('well-list.ejs', {wellList: wells})
         } catch (err){
             if (err) return res.status(500).send(err)
         }
