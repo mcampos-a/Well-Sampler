@@ -12,24 +12,32 @@
         <section>
             <ul>
                 <% wellList.forEach(well => { %>
-                    <% if (clicked well == well in wellList)
-                    <li>
-                        <form action="/edit/update/<%= well._id%>" method="POST">
-                            <label for="wellName">Enter Well Name:</label>
-                            <input type="text" name="wellName" placeholder="e.g. WR-201A" value = "<%= well.wellName %>">
+                    <% if (well._id == idWell) { %>
+                        <li>
+                            <form action="/edit/update/<%= well._id%>" method="POST">
+                                <label for="wellName">Enter Well Name:</label>
+                                <input type="text" name="wellName" placeholder="e.g. WR-201A" value = "<%= well.wellName %>">
                     
-                            <label for="dateConstructed">Enter Well Construction Date:</label>
-                            <input type="date" name="dateConstructed" placeholder="1992" value = "<%= well.dateConstructed %>">
+                                <label for="dateConstructed">Enter Well Construction Date:</label>
+                                <input type="date" name="dateConstructed" placeholder="1992" value = "<%= well.dateConstructed %>">
                     
-                            <label for="swl">Enter Staic Water Level:</label>
-                            <input type="number" name="swl" min="0" placeholder="210" step="0.01" value = "<%= well.swl %>">
+                                <label for="swl">Enter Staic Water Level:</label>
+                                <input type="number" name="swl" min="0" placeholder="210" step="0.01" value = "<%= well.swl %>">
                     
-                            <label for="correction">Enter Correction:</label>
-                            <input type="number" name="correction" step="0.01"  value = "<%= well.correction %>">
-                            <button type="submit">Confirm</button>
+                                <label for="correction">Enter Correction:</label>
+                                <input type="number" name="correction" step="0.01"  value = "<%= well.correction %>">
+                                <button type="submit">Confirm</button>
                             <a href="/">Cancel</a> 
-                        </form> 
-                    </li>
+                            </form> 
+                        </li>
+                    <% } %> else { %>
+                        <li>
+                            <div><%= well.wellName %></div>
+                            <div><%= well.cSWL %></div>
+                            <a href="">Edit</a>
+                            <a href="">Remove</a>
+                        </li>
+                        <% } %>
                 <% }) %>
             </ul>
         </section>
