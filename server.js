@@ -9,7 +9,8 @@ require('dotenv').config({path: "./config/.env" })//Use .env file in config fold
 
     //*Import functions/routes
 const connectDB = require("./config/database")
-const homeRoutes = require('./routes/home')
+const homeRoutes = require("./routes/home")
+const editRoutes = require("./routes/edit-well")
 
 //Connect to Database
 connectDB()
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended: true})) //makes sure we can parse post url
 
 //todo - Set Routes
 app.use('/', homeRoutes)
+app.use('/edit', editRoutes)
 
 //todo - Start Server
 app.listen(process.env.PORT, () => {

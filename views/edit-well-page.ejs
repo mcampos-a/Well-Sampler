@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Well</title>
     <link rel="stylesheet" href="">
 </head>
@@ -27,15 +27,15 @@
                                 <label for="correction">Enter Correction:</label>
                                 <input type="number" name="correction" step="0.01"  value = "<%= well.correction %>">
                                 <button type="submit">Confirm</button>
-                            <a href="/">Cancel</a> 
+                                <a href="/">Cancel</a> 
                             </form> 
                         </li>
-                    <% } %> else { %>
+                    <% } else { %>
                         <li>
                             <div><%= well.wellName %></div>
                             <div><%= well.cSWL %></div>
-                            <a href="">Edit</a>
-                            <a href="">Remove</a>
+                            <a href="/edit/<%= well._id %>">Edit</a>
+                            <a href="/edit/remove/<%= well._id %>">Remove</a>
                         </li>
                         <% } %>
                 <% }) %>
