@@ -13,6 +13,7 @@ const connectDB = require("./config/database")
 const mainRoutes = require("./routes/main")
 const wellListRoutes = require("./routes/well-list")
 const editRoutes = require("./routes/edit-well")
+const postRoutes = require("./routes/posts");
 
 require('dotenv').config({path: "./config/.env" })//Use .env file in config folder
 
@@ -39,7 +40,7 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({ mongoUrl: process.env.DB_STRING }),
+    store: new MongoStore({ mongoUrl: process.env.DB_CONNECTION }),
   })
 )
 
@@ -54,6 +55,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/well-list', wellListRoutes)
 app.use('/edit', editRoutes)
+app.use("/post", postRoutes)
 
 //todo - Start Server
 app.listen(process.env.PORT, () => {
