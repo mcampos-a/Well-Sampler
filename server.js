@@ -13,7 +13,8 @@ const connectDB = require("./config/database")
 const mainRoutes = require("./routes/main")
 const wellListRoutes = require("./routes/well-list")
 const editRoutes = require("./routes/edit-well")
-const postRoutes = require("./routes/posts");
+const sampleEventRoutes = require("./routes/sample-event");
+
 
 require('dotenv').config({path: "./config/.env" })//Use .env file in config folder
 
@@ -55,7 +56,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/well-list', wellListRoutes)
 app.use('/edit', editRoutes)
-app.use("/post", postRoutes)
+app.use("/sample-event", sampleEventRoutes)
 
 //todo - Start Server
 app.listen(process.env.PORT, () => {

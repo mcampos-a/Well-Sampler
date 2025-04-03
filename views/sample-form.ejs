@@ -8,19 +8,31 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>New Sampling Form</h2>
+            <h2>Water Quality Sampling Form</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
+                  <label for="title" class="form-label">Well Name:</label>
                   <input type="text" class="form-control" id="title" name="title">
               </div>
               <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
+                <label for="caption" class="form-label">Date:</label>
+                <textarea class="form-control" id="form-control" name="dateSampled"></textarea>
               </div>
               <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
+                <label for="imgUpload" class="form-label">Field Staff:</label>
+                <input type="text" class="form-control" id="title" name="fieldStaff">
+              </div><div class="mb-3">
+                <label for="imgUpload" class="form-label">Sampler:</label>
+                <input type="text" class="form-control" id="title" name="sampler">
+              </div><div class="mb-3">
+                <label for="imgUpload" class="form-label">Static Water Level (SWL):</label>
+                <input type="date" class="form-control" id="imageUpload" name="swl">
+              </div><div class="mb-3">
+                <label for="imgUpload" class="form-label">Correction:</label>
+                <input type="date" class="form-control" id="imageUpload" name="correction">
+              </div><div class="mb-3">
+                <label for="imgUpload" class="form-label">Corrected SWL:</label>
+                <input type="date" class="form-control" id="imageUpload" name="correctedSWL">
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
