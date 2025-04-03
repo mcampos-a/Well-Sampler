@@ -1,16 +1,17 @@
 const mongoose = require('mongoose')
+
 const WellListSchema = new mongoose.Schema({
     wellName: {
         type: String,
-        required: true
+        required: true,
     },
     swl: {
         type: Number,
-        required: true
+        required: true,
     },
     correction: {
         type: Number,
-        required: true
+        required: true,
     },
     cSWL: {
         type: Number,
@@ -18,7 +19,7 @@ const WellListSchema = new mongoose.Schema({
     },
     dateEntered: {
         type: Date,
-        default: Date.now
+        default: Date.now(),
     },
     dateConstructed: {
         type: Date,

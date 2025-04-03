@@ -10,6 +10,18 @@ module.exports = {
         }
     },
     createWell : async (req, res) => {
+        // try {
+        //       await WellList.create({
+        //             wellName: req.body.wellName,
+        //             swl: req.body.swl,
+        //             correction: req.body.correction,
+        //             dateConstructed: req.body.dateConstructed
+        //       });
+        //       console.log("A well has been added!");
+        //       res.redirect("/well-list");
+        //     } catch (err) {
+        //       console.log(err);
+        //     }
          const newWell = new WellList(
                 {
                     wellName: req.body.wellName,
@@ -21,7 +33,7 @@ module.exports = {
             try {
                 await newWell.save()
                 console.log('well added to database')
-                res.redirect('/')
+                res.redirect('/well-list')
             } catch (err){
                 if (err) return res.status(500).send(err)
                     res.redirect('/')

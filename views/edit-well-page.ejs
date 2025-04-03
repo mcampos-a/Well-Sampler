@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Well</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+<%- include('partials/header') -%>
 <body>
     <section>
         <h1>Well Edit Page</h1>
@@ -28,7 +21,7 @@
                                 <label for="correction">Enter Correction:</label>
                                 <input type="number" name="correction" step="0.01"  value = "<%= well.correction %>">
                                 <button type="submit">Confirm</button>
-                                <a href="/">Cancel</a> 
+                                <a href="/well-list">Cancel</a> 
                             </form> 
                         </li>
                         <br>
@@ -47,4 +40,4 @@
     </section>
 
 </body>
-</html>
+<%- include('partials/footer') -%>

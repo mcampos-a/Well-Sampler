@@ -34,7 +34,7 @@ module.exports = {
             )
             console.log(update)
             console.log(`Well ${update.wellName} has been updated`)
-            res.redirect('/')
+            res.redirect('/well-list')
         } catch (err){
             console.log(err)
         }

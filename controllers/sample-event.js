@@ -2,6 +2,7 @@ const { request } = require("express");
 const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment")
+const SampleEvent = require("../models/SampleForm")
 
 module.exports = {
 //   getProfile: async (req, res) => {
@@ -31,8 +32,9 @@ module.exports = {
     // },
     getSamplingForm : async (req, res) => {
         try {
-              const form = await SampleForm.find()
-              res.render('sample-form.ejs', {sampleForm: form})
+              const profile = await Post.find({ user: req.user.id });
+              const form = await SampleEvent.find()
+              res.render('sample-event.ejs', {sampleForm: form, user: req.user.id}) //{ posts: posts, user: req.user }
           } catch (err){
               if (err) return res.status(500).send(err)
           }

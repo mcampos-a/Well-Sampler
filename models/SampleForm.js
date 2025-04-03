@@ -30,4 +30,4 @@ const WellFormSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('WellForm', WellFormSchema, 'sample-events') //take bluprint we created, package it up, reference name, schema, and collection. This is the order of what things are called.
+module.exports = mongoose.model('SampleEvent', WellFormSchema, 'sample-events') //take bluprint we created, package it up, reference name, schema, and collection. This is the order of what things are called.
