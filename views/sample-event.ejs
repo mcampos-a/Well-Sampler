@@ -9,7 +9,7 @@
           </div>
           <div class="mt-5">
             <h2>Water Quality Sampling Form</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <form action="/" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="wellName" class="form-label">Well Name:</label>
                   <input type="text" class="form-control" id="title" name="wellName">
@@ -26,16 +26,19 @@
                 <input type="text" class="form-control" id="title" name="sampler">
               </div><div class="mb-3">
                 <label for="swl" class="form-label">Static Water Level (SWL):</label>
-                <input type="number" step="0.01" class="form-control" id="title" placeholder="0.00" name="swl">
+                <input type="number" step="0.01" class="form-control swl" id="" placeholder= 0.00 name="swl">
               </div><div class="mb-3">
                 <label for="correction" class="form-label">Correction:</label>
-                <input type="number" step="0.01" class="form-control" id="title" name="correction">
+                <input type="number" step="0.01" class="form-control correction" id="" placeholder= 0.00 name="correction">
               </div><div class="mb-3">
                 <label for="correctedSWL" class="form-label">Corrected SWL:</label>
-                <input type="number" step="0.01" class="form-control" id="title" name="correctedSWL">
+                <input type="number" step="0.01" class="form-control" id="title" placeholder= 0.00 name="correctedSWL">
               </div>
+              <div id="show-cswl"></div>
+              
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
+            <button class="btn btn-secondary" id="calc">Calculate</button>
           </div>
       </div>
       <div class="col-6">
