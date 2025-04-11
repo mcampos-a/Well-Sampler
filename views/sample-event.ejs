@@ -84,21 +84,54 @@
         <div class="justify-content-center mt-5">
           <h2 class="justify-content-between mt-3">Well Water Pumped</h2>
           <form id="myForm">
-            <label for="swl" class="form-label">Totalizer End:</label>
-            <input type="number" step="0.01" class="form-control" id="" placeholder= 0.00 name="totalizerEnd">
+            <label for="totalizerEnd" class="form-label">Totalizer End:</label>
+            <input type="number" step="0.01" class="form-control totalizerEnd" id="" placeholder= 0.00 name="totalizerEnd" onchange="calcTotalizerTotal()">
 
-            <label for="swl" class="form-label">Totalizer Start:</label>
-            <input type="number" step="0.01" class="form-control" id="" placeholder= 0.00 name="totalizerStart">
+            <label for="totalizerStart" class="form-label">Totalizer Start:</label>
+            <input type="number" step="0.01" class="form-control totalizerStart" id="" placeholder= 0.00 name="totalizerStart">
+
+            <label for="totalizerTotal" class="form-label">Totalizer Total:</label>
+            <input type="number" step="0.01" class="form-control totalizerTotal" id="" placeholder= 0.00 name="totalizerTotal">
             
             <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
           </form>
         </div> 
       </div>  
   </div>
-<!-- 2nd row start -->
+ <!-- 2nd row start -->
   <div class="row mt-5">
-    <div class="col">
+    <!-- column 1 -->
+    <div class="col-6">
         
+      <div class="justify-content-center mt-5">
+        <h2 class="justify-content-between mt-3">Generator Run Time:</h2>
+        <form id="myForm">
+          <label for="timeEnd" class="form-label">Pump End Time:</label>
+          <input type="time" step="" class="form-control timeEnd" id="" placeholder= 0.00 name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
+
+          <label for="timeStart" class="form-label">Pump Start Time:</label>
+          <input type="time" step="" class="form-control timeStart" id="" placeholder= 0.00 name="timeStart">
+
+          <label for="timeTotal" class="form-label">Total Pump Time:</label>
+          <input type="number" step="" class="form-control timeTotal" id="" placeholder= 0.00 name="timeTotal">
+          
+          <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
+        </form>
+      </div>
+    </div>
+    <!-- column 2 -->
+    <div class="col-6"> 
+      
+        <h3 class="justify-content-between mt-5">Average Discharge</h3>
+        <form id="myForm">
+          <label for="averageDischarge" class="form-label">Total (gal) / Total (min) =</label>
+          <input type="number" step="0.01" class="form-control averageDischarge" id="" placeholder= 0.00 name="averageDischarge">
+        </form>
+  
+    </div>
+
+    <!-- column 3 -->
+    <!-- <div class="col">
       <div class="row justify-content-center mt-5">
         <a class="btn btn-primary" href="/feed">Return to Feed</a>
       </div>  
@@ -119,63 +152,16 @@
             <input type="checkbox" name="annual" value="value3"> Annual
           </label><br>
           <button type="submit" class="btn btn-secondary">Submit</button>
-      </form>
+        </form>
       </div>  
-    </div>
-    <div class="col">
-        <!-- 3rd row starts  -->
-
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/feed">Return to Feed</a>
-      </div>  
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/well-list">Well Table</a>
-      </div>
-      
-      <div class="row justify-content-center mt-5">
-        <h3 class="row justify-content-between mt-5">Type of Sampling Event</h3>
-        <form id="myForm">
-          <label>
-            <input type="checkbox" name="monthly" value="value1"> Monthly
-          </label><br>
-          <label>
-            <input type="checkbox" name="quarterly" value="value2"> Quarterly
-          </label><br>
-          <label>
-            <input type="checkbox" name="annual" value="value3"> Annual
-          </label><br>
-          <button type="submit" class="btn btn-secondary">Submit</button>
-      </form>
-      </div>  
-    </div>
-    <div class="col">
-        
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/feed">Return to Feed</a>
-      </div>  
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/well-list">Well Table</a>
-      </div>
-      
-      <div class="row justify-content-center mt-5">
-        <h3 class="row justify-content-between mt-5">Type of Sampling Event</h3>
-        <form id="myForm">
-          <label>
-            <input type="checkbox" name="monthly" value="value1"> Monthly
-          </label><br>
-          <label>
-            <input type="checkbox" name="quarterly" value="value2"> Quarterly
-          </label><br>
-          <label>
-            <input type="checkbox" name="annual" value="value3"> Annual
-          </label><br>
-          <button type="submit" class="btn btn-secondary">Submit</button>
-      </form>
-      </div>  
-    </div>
+    </div> -->
 
 
-  </div> 
+     
   </div>
+  <!-- 3rd row starts  -->
+ 
+
+
 </div>
 <%- include('partials/footer') -%>
