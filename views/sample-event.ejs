@@ -13,27 +13,31 @@
             <form action="/" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="wellName" class="form-label">Well Name:</label>
-                  <input type="text" class="form-control" id="title" name="wellName">
+                  <input type="text" class="form-control" id="wellName" name="wellName">
               </div>
               <div class="mb-3">
                 <label for="dateSampled" class="form-label">Date:</label>
-                <input type="date" class="form-control" id="title" name="correctedSWL">
+                <input type="date" class="form-control" id="dateSampled" name="correctedSWL">
               </div>
               <div class="mb-3">
                 <label for="fieldStaff" class="form-label">Field Staff:</label>
-                <input type="text" class="form-control" id="title" name="fieldStaff">
-              </div><div class="mb-3">
+                <input type="text" class="form-control" id="fieldStaff" name="fieldStaff">
+              </div>
+              <div class="mb-3">
                 <label for="sampler" class="form-label">Sampler:</label>
-                <input type="text" class="form-control" id="title" name="sampler">
-              </div><div class="mb-3">
+                <input type="text" class="form-control" id="sampler" name="sampler">
+              </div>
+              <div class="mb-3">
                 <label for="swl" class="form-label">Static Water Level (SWL):</label>
-                <input type="number" step="0.01" class="form-control swl" id="" placeholder= 0.00 name="swl">
-              </div><div class="mb-3">
+                <input type="number" step="0.01" class="form-control swl" id="swl" placeholder= 0.00 name="swl">
+              </div>
+              <div class="mb-3">
                 <label for="correction" class="form-label">Correction:</label>
-                <input type="number" step="0.01" class="form-control correction" id="" placeholder= 0.00 name="correction" onchange="calcWaterLevel()">
-              </div><div class="mb-3">
+                <input type="number" step="0.01" class="form-control correction" id="correction" placeholder= 0.00 name="correction" onchange="calcWaterLevel()">
+              </div>
+              <div class="mb-3">
                 <label for="correctedSWL" class="form-label">Corrected SWL:</label>
-                <input type="number" step="0.01" class="form-control cSWL" id="title" placeholder= 0.00 name="correctedSWL">
+                <input type="number" step="0.01" class="form-control cSWL" id="correctedSWL" placeholder= 0.00 name="correctedSWL">
               </div>
               <div id="show-cswl"></div>
               
@@ -85,13 +89,13 @@
           <h2 class="justify-content-between mt-3">Well Water Pumped</h2>
           <form id="myForm">
             <label for="totalizerEnd" class="form-label">Totalizer End:</label>
-            <input type="number" step="0.01" class="form-control totalizerEnd" id="" placeholder= 0.00 name="totalizerEnd" onchange="calcTotalizerTotal()">
+            <input type="number" step="0.01" class="form-control totalizerEnd" id="totalizerEnd" placeholder= 0.00 name="totalizerEnd" onchange="calcTotalizerTotal()">
 
             <label for="totalizerStart" class="form-label">Totalizer Start:</label>
-            <input type="number" step="0.01" class="form-control totalizerStart" id="" placeholder= 0.00 name="totalizerStart">
+            <input type="number" step="0.01" class="form-control totalizerStart" id="totalizerStart" placeholder= 0.00 name="totalizerStart">
 
             <label for="totalizerTotal" class="form-label">Totalizer Total:</label>
-            <input type="number" step="0.01" class="form-control totalizerTotal" id="" placeholder= 0.00 name="totalizerTotal">
+            <input type="number" step="0.01" class="form-control totalizerTotal" id="totalizerTotal" placeholder= 0.00 name="totalizerTotal">
             
             <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
           </form>
@@ -107,13 +111,13 @@
         <h2 class="justify-content-between mt-3">Generator Run Time:</h2>
         <form id="myForm">
           <label for="timeEnd" class="form-label">Pump End Time:</label>
-          <input type="time" step="" class="form-control timeEnd" id="" placeholder= 0.00 name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
+          <input type="time" step="" class="form-control timeEnd" id="timeEnd" placeholder= 0.00 name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
 
           <label for="timeStart" class="form-label">Pump Start Time:</label>
-          <input type="time" step="" class="form-control timeStart" id="" placeholder= 0.00 name="timeStart">
+          <input type="time" step="" class="form-control timeStart" id="timeStart" placeholder= 0.00 name="timeStart">
 
           <label for="timeTotal" class="form-label">Total Pump Time:</label>
-          <input type="number" step="" class="form-control timeTotal" id="" placeholder= 0.00 name="timeTotal">
+          <input type="number" step="" class="form-control timeTotal" id="timeTotal" placeholder= 0.00 name="timeTotal">
           
           <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
         </form>
@@ -125,7 +129,7 @@
         <h3 class="justify-content-between mt-5">Average Discharge</h3>
         <form id="myForm">
           <label for="averageDischarge" class="form-label">Total (gal) / Total (min) =</label>
-          <input type="number" step="0.01" class="form-control averageDischarge" id="" placeholder= 0.00 name="averageDischarge">
+          <input type="number" step="0.01" class="form-control averageDischarge" id="averageDischarge" placeholder= 0.00 name="averageDischarge">
         </form>
   
     </div>
@@ -160,7 +164,50 @@
      
   </div>
   <!-- 3rd row starts  -->
- 
+  <div class="row mt-5">
+
+    <!-- column 1 -->
+    <div class="col-6">
+      <div class="mt-5">
+        <h2>Well Volume Calculation:</h2>
+        <form>
+          <div class="mb-3">
+              <label for="wellVolume" class="form-label">Well Volumes:</label>
+              <input type="number" value="5" min="0" class="form-control wellVolumes" id="wellVolume" name="wellVolume">
+          </div>
+          <div class="mb-3">
+            <label for="wellDiameter" class="form-label">Well Diamter:</label>
+            <input type="number" value="6" class="form-control wellDiameter" id="wellDiameter" name="wellDiameter">
+          </div>
+          <div class="mb-3">
+            <label for="wellDepth" class="form-label">Depth of Well:</label>
+            <input type="number" step="0.01" class="form-control wellDepth" id="wellDepth" placeholder= 0.00 name="wellDepth">
+          </div>
+          <div class="mb-3">
+            <label for="cSWL" class="form-label">Corrected SWL:</label>
+            <input type="number" step="0.01" class="form-control corrSWL" id="cSWL" placeholder= 0.00 name="cSWL" onchange="calcPurgeVolume(),  calcEstimatedPurgeTime()">
+          </div>
+          <div class="mb-3">
+            <label for="purgeVolume" class="form-label">Calculated Purge Volume:</label>
+            <input type="number" step="0.01" class="form-control purgeVolume" id="purgeVolume" placeholder= 0.00 name="purgeVolume">
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- column 2 -->
+    <div class="col-6">
+      <div class="mt-5">
+        <form>
+          <label for="estPurgeTime" class="form-label">Estimated Purge Time:</label>
+            <input type="number" step="0.01" class="form-control estPurgeTime" id="estPurgeTime" placeholder= 0.00 name="estPurgeTime">
+        </form>
+      </div>
+      
+
+    </div>
+
+  </div>
 
 
 </div>

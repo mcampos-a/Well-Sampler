@@ -54,7 +54,29 @@ function calcAverageDischarge(){
   timeEndArr = timeEnd.split(":")
   timeEndInMinutes = parseInt(timeEndArr[0]) * 60 + parseInt(timeEndArr[1]) //turn the end time into a sum minutes
 
-  diff = timeEndInMinutes - timeStartInMinutes
+  diff = Math.abs(timeEndInMinutes - timeStartInMinutes)
 
-  document.querySelector('.averageDischarge').value = totalizerTotal / diff
+  document.querySelector('.averageDischarge').value = Number((totalizerTotal / diff).toFixed(2))
+
+  return totalizerTotal / diff
+}
+
+function calcPurgeVolume(){
+  let wellVolumes = document.querySelector('.wellVolumes').value
+  let wellDiamater = document.querySelector('.wellDiameter').value
+  let wellDepth = document.querySelector('.wellDepth').value
+  let correctedSWL = document.querySelector('.corrSWL').value
+
+  let purgeVolume = wellVolumes * ((Math.PI * Math.pow(((wellDiamater/12)/2),2) * (wellDepth - correctedSWL)))
+
+  document.querySelector('.purgeVolume').value = Number(purgeVolume.toFixed(2))
+  
+  return purgeVolume
+}
+
+function calcEstimatedPurgeTime(){
+  let purgeTime = calcPurgeVolume() / calcAverageDischarge()
+
+  document.querySelector('.estPurgeTime').value = Number(purgeTime.toFixed(2))
+  console.log(purgeTime)
 }
