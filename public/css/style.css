@@ -16,3 +16,7 @@ button{
 li{
     margin-bottom: 5px;
 }
+
+table input{
+    width: 4em;
+}
