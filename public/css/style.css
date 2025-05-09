@@ -20,3 +20,7 @@ li{
 table input{
     width: 4em;
 }
+
+form input{
+    width: 4em;
+}
