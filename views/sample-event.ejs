@@ -10,14 +10,14 @@
           </div>
           <div class="mt-5">
             <h2>Water Quality Sampling Form</h2>
-            <form action="/" enctype="multipart/form-data" method="POST">
+            <form action="/sample-event/newSampleEvent" method="POST">
               <div class="mb-3">
                   <label for="wellName" class="form-label">Well Name:</label>
                   <input type="text" class="form-control" id="wellName" name="wellName">
               </div>
               <div class="mb-3">
                 <label for="dateSampled" class="form-label">Date:</label>
-                <input type="date" class="form-control" id="dateSampled" name="correctedSWL">
+                <input type="date" class="form-control" id="dateSampled" name="dateSampled">
               </div>
               <div class="mb-3">
                 <label for="fieldStaff" class="form-label">Field Staff:</label>
@@ -39,12 +39,12 @@
                 <label for="correctedSWL" class="form-label">Corrected SWL:</label>
                 <input type="number" step="0.01" class="form-control cSWL" id="correctedSWL" placeholder= 0.00 name="correctedSWL">
               </div>
-              <div id="show-cswl"></div>
+              
               
               
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
-            <button class="btn btn-secondary" id="calc">Calculate</button>
+           
           </div>
           
       </div>

@@ -9,10 +9,10 @@ router.get('/', SampleEventController.getSamplingForm) //reads and displays samp
 // router.get("/:id", ensureAuth, SampleEventController.getSampleEvent); //gets specific sampling event that already happened
 
 
-// router.post("/createSampleEvent", upload.single("file"), postsController.createSampleEvent);
+router.post('/newSampleEvent', SampleEventController.createSampleEvent);
+// router.post("/newSampleEvent", upload.single("file"), postsController.createSampleEvent); //keeping it for upload post example for when I want to upload a picture for a well
+// router.put("/likePost/:id", postsController.likePost); //routes an update command to a controller 
 
-// router.put("/likePost/:id", postsController.likePost);
-
-// router.delete("/deleteSampleEvent/:id", SampleEventController.deleteSampleEvent);
+// router.delete("/deleteSampleEvent/:id", SampleEventController.deleteSampleEvent); //routes delete command to a controller
 
 module.exports = router;

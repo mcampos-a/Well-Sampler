@@ -32,13 +32,36 @@ module.exports = {
     // },
     getSamplingForm : async (req, res) => {
         try {
-              const profile = await Post.find({ user: req.user.id });
+            //   const profile = await Post.find({ user: req.user.id }); //used to find the posts of the user linked to user ID
               const form = await SampleEvent.find()
               res.render('sample-event.ejs', {sampleForm: form, user: req.user.id}) //{ posts: posts, user: req.user }
           } catch (err){
               if (err) return res.status(500).send(err)
           }
-      }
+    },
+    createSampleEvent : async (req, res) => {
+        
+        // Upload image to cloudinary
+        // const result = await cloudinary.uploader.upload(req.file.path);
+        console.log(req.body)
+        const newSampleEvent = new SampleEvent({
+                wellName: req.body.wellName,
+                dateSampled: req.body.dateSampled,
+                fieldStaff: req.body.fieldStaff,
+                sampler: req.body.sampler,
+                swl: req.body.swl,
+                correction: req.body.correction,
+                cSWL: req.body.correctedSWL
+        })
+        try {
+        await newSampleEvent.save();
+        console.log("A Sample Event has been added!");
+        res.redirect("/profile");
+        } catch (err) {
+        console.log(err);
+        }
+    },
+
 //   createPost: async (req, res) => {
 //     try {
 //       // Upload image to cloudinary

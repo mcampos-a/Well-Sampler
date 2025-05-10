@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const WellFormSchema = new mongoose.Schema({
     wellName: {
         type: String,
@@ -6,7 +7,6 @@ const WellFormSchema = new mongoose.Schema({
     },
     dateSampled: {
         type: Date,
-        default: Date.now,
         required: true
     },
     fieldStaff: {
@@ -27,7 +27,8 @@ const WellFormSchema = new mongoose.Schema({
     },
     cSWL: {
         type: Number,
-    },
+        required: true
+    }
 })
 
 module.exports = mongoose.model('SampleEvent', WellFormSchema, 'sample-events') //take bluprint we created, package it up, reference name, schema, and collection. This is the order of what things are called.

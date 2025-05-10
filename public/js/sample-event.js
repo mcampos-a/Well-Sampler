@@ -1,12 +1,11 @@
-document.querySelector('#calc').addEventListener('click', calcWaterLevel)
-
 function calcWaterLevel(){
   let swl = document.querySelector('.swl').value
   let correction = document.querySelector('.correction').value
   
 
-  console.log(correction)
+  
   console.log(swl)
+  console.log(correction)
   let corretedSWL = Number(swl) + Number(correction)
 
   document.querySelector('.cSWL').value = corretedSWL
