@@ -2,8 +2,6 @@ function calcWaterLevel(){
   let swl = document.querySelector('.swl').value
   let correction = document.querySelector('.correction').value
   
-
-  
   console.log(swl)
   console.log(correction)
   let corretedSWL = Number(swl) + Number(correction)
@@ -61,10 +59,10 @@ function calcAverageDischarge(){
 }
 
 function calcPurgeVolume(){
-  let wellVolumes = document.querySelector('.wellVolumes').value
+  let wellVolumes = document.querySelector('.wellVolume').value
   let wellDiamater = document.querySelector('.wellDiameter').value
   let wellDepth = document.querySelector('.wellDepth').value
-  let correctedSWL = document.querySelector('.corrSWL').value
+  let correctedSWL = document.querySelector('.cSWL').value
 
   let purgeVolume = wellVolumes * ((Math.PI * Math.pow(((wellDiamater/12)/2),2) * (wellDepth - correctedSWL)))
 

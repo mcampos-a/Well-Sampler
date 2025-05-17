@@ -1,303 +1,175 @@
 <%- include('partials/header') -%>
 <div class="container">
-  <!-- first row -->
+  <!-- User Info -->
   <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Water Quality Sampling Form</h2>
-            <form action="/sample-event/newSampleEvent" method="POST">
-              <div class="mb-3">
-                  <label for="wellName" class="form-label">Well Name:</label>
-                  <input type="text" class="form-control" id="wellName" name="wellName">
-              </div>
-              <div class="mb-3">
-                <label for="dateSampled" class="form-label">Date:</label>
-                <input type="date" class="form-control" id="dateSampled" name="dateSampled">
-              </div>
-              <div class="mb-3">
-                <label for="fieldStaff" class="form-label">Field Staff:</label>
-                <input type="text" class="form-control" id="fieldStaff" name="fieldStaff">
-              </div>
-              <div class="mb-3">
-                <label for="sampler" class="form-label">Sampler:</label>
-                <input type="text" class="form-control" id="sampler" name="sampler">
-              </div>
-              <div class="mb-3">
-                <label for="swl" class="form-label">Static Water Level (SWL - ft):</label>
-                <input type="number" step="0.01" class="form-control swl" id="swl" placeholder= 0.00 name="swl">
-              </div>
-              <div class="mb-3">
-                <label for="correction" class="form-label">Correction (ft):</label>
-                <input type="number" step="0.01" class="form-control correction" id="correction" placeholder= 0.00 name="correction" onchange="calcWaterLevel()">
-              </div>
-              <div class="mb-3">
-                <label for="correctedSWL" class="form-label">Corrected SWL (ft):</label>
-                <input type="number" step="0.01" class="form-control cSWL" id="correctedSWL" placeholder= 0.00 name="correctedSWL">
-              </div>
-              
-              
-              
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-           
-          </div>
-          
-      </div>
-
-      <div class="col-6">  
-        <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <p><strong>User Name</strong>: <%= user.userName %></p>
+      <p><strong>Email</strong>: <%= user.email %></p>
+      <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+    </div>
+    <div class="col-6">
+       <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/feed">Sample History</a>
         </div>  
         <div class="row justify-content-center mt-5">
           <a class="btn btn-primary" href="/well-list">Well Table</a>
         </div>
-        
-        <div class="justify-content-center mt-5">
-          <h3 class="justify-content-between mt-3">Type of Sampling Event</h3>
-          <form id="myForm">
-            <label>
-              <input type="checkbox" name="monthly" value="value1"> Monthly
-            </label><br>
-            <label>
-              <input type="checkbox" name="quarterly" value="value2"> Quarterly
-            </label><br>
-            <label>
-              <input type="checkbox" name="annual" value="value3"> Annual
-            </label><br>
-            <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
-          </form>
-        </div>  
-        <div class="justify-content-center mt-5">
-          <h3 class="justify-content-between mt-3">Discharge Method:</h3>
-          <form id="myForm">
-            <fieldset>
-              <!-- <legend class="justify-content-between mt-3">Discharge Method:</legend> -->
-              <div>
-                <input type="radio" name="method" id="method-gpi" value="gpi">
-                <label for="method-gpi">GPI</label><br>
-            
-                <input type="radio" name="method" id="method-other" value="other"> 
-                <label id="method-other">Other</label><br>
-                <input type="text" name="otherText" class="form-control">
-              </div>
-              <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
-             </fieldset>
-          </form>
-        </div> 
-        <div class="justify-content-center mt-5">
-          <h2 class="justify-content-between mt-3">Well Water Pumped</h2>
-          <form id="myForm">
-            <label for="totalizerEnd" class="form-label">Totalizer End (gal):</label>
-            <input type="number" step="0.01" class="form-control totalizerEnd" id="totalizerEnd" placeholder= 0.00 name="totalizerEnd" onchange="calcTotalizerTotal()">
-
-            <label for="totalizerStart" class="form-label">Totalizer Start (gal):</label>
-            <input type="number" step="0.01" class="form-control totalizerStart" id="totalizerStart" placeholder= 0.00 name="totalizerStart">
-
-            <label for="totalizerTotal" class="form-label">Totalizer Total (gal):</label>
-            <input type="number" step="0.01" class="form-control totalizerTotal" id="totalizerTotal" placeholder= 0.00 name="totalizerTotal">
-            
-            <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
-          </form>
-        </div> 
-      </div>  
+    </div>
   </div>
- <!-- 2nd row start -->
-  <div class="row mt-5">
-    <!-- column 1 -->
-    <div class="col-6">
-        
-      <div class="justify-content-center mt-5">
-        <h2 class="justify-content-between mt-3">Generator Run Time:</h2>
-        <form id="myForm">
-          <label for="timeEnd" class="form-label">Pump End Time:</label>
-          <input type="time" step="" class="form-control timeEnd" id="timeEnd" placeholder= 0.00 name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
 
-          <label for="timeStart" class="form-label">Pump Start Time:</label>
-          <input type="time" step="" class="form-control timeStart" id="timeStart" placeholder= 0.00 name="timeStart">
+  <!-- Begin Single Form -->
+  <form action="/sample-event/newSampleEvent" method="POST">
+    <div class="row mt-5">
+      <div class="col-6">
+        <h2>Water Quality Sampling Form</h2>
 
-          <label for="timeTotal" class="form-label">Total Pump Time (min):</label>
-          <input type="number" step="" class="form-control timeTotal" id="timeTotal" placeholder= 0.00 name="timeTotal">
+        <div class="mb-3">
+          <label for="wellName" class="form-label">Well Name:</label>
+          <input type="text" class="form-control" id="wellName" name="wellName">
+        </div>
+
+        <div class="mb-3">
+          <label for="dateSampled">Date:</label>
+          <input type="date" class="form-control" id="dateSampled" name="dateSampled">
+        </div>
+
+        <div class="mb-3">
+          <label for="fieldStaff">Field Staff:</label>
+          <input type="text" class="form-control" id="fieldStaff" name="fieldStaff">
+        </div>
+
+        <div class="mb-3">
+          <label for="sampler">Sampler:</label>
+          <input type="text" class="form-control" id="sampler" name="sampler">
+        </div>
+
+        <div class="mb-3">
+          <label for="swl">Static Water Level (SWL - ft):</label>
+          <input type="number" step="0.01" class="form-control swl" id="swl" name="swl">
+        </div>
+
+        <div class="mb-3">
+          <label for="correction">Correction (ft):</label>
+          <input type="number" step="0.01" class="form-control correction" id="correction" name="correction" onchange="calcWaterLevel()">
+        </div>
+
+        <div class="mb-3">
+          <label for="correctedSWL">Corrected SWL (ft):</label>
+          <input type="number" step="0.01" class="form-control cSWL" id="correctedSWL" name="correctedSWL">
+        </div>
+      </div>
+
+      <div class="col-6">
+       
+
+        <div class="mt-5">
+          <h3>Type of Sampling Event</h3>
+          <label><input type="checkbox" name="eventType[]" value="monthly"> Monthly</label><br>
+          <label><input type="checkbox" name="eventType[]" value="quarterly"> Quarterly</label><br>
+          <label><input type="checkbox" name="eventType[]" value="annual"> Annual</label><br>
+        </div>
+
+        <div class="mt-5">
+          <h3>Discharge Method</h3>
+          <input type="radio" name="dischargeMethod" id="gpi" value="gpi"><label for="gpi">GPI</label><br>
+          <input type="radio" name="dischargeMethod" id="other" value="other"><label for="other">Other</label><br>
+          <input type="text" name="otherText" class="form-control" placeholder="Specify if other">
+        </div>
+
+        <div class="mt-5">
+          <h3>Well Water Pumped</h3>
+          <label for="totalizerStart">Totalizer Start (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerStart" id="totalizerStart" name="totalizerStart">
           
-          <!-- <button type="submit" class="btn btn-secondary">Submit</button> -->
-        </form>
+          <label for="totalizerEnd">Totalizer End (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerEnd" id="totalizerEnd" name="totalizerEnd" onchange="calcTotalizerTotal()">
+
+
+          <label for="totalizerTotal">Totalizer Total (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerTotal" id="totalizerTotal" name="totalizerTotal">
+        </div>
       </div>
     </div>
-    <!-- column 2 -->
-    <div class="col-6"> 
-      
-        <h3 class="justify-content-between mt-5">Average Discharge</h3>
-        <form id="myForm">
-          <label for="averageDischarge" class="form-label">Total (gal) / Total (min) =</label>
-          <input type="number" step="0.01" class="form-control averageDischarge" id="averageDischarge" placeholder= 0.00 name="averageDischarge">
-        </form>
-  
-    </div>
 
-    <!-- column 3 -->
-    <!-- <div class="col">
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/feed">Return to Feed</a>
-      </div>  
-      <div class="row justify-content-center mt-5">
-        <a class="btn btn-primary" href="/well-list">Well Table</a>
-      </div>
-      
-      <div class="row justify-content-center mt-5">
-        <h3 class="row justify-content-between mt-5">Type of Sampling Event</h3>
-        <form id="myForm">
-          <label>
-            <input type="checkbox" name="monthly" value="value1"> Monthly
-          </label><br>
-          <label>
-            <input type="checkbox" name="quarterly" value="value2"> Quarterly
-          </label><br>
-          <label>
-            <input type="checkbox" name="annual" value="value3"> Annual
-          </label><br>
-          <button type="submit" class="btn btn-secondary">Submit</button>
-        </form>
-      </div>  
-    </div> -->
+    <div class="row mt-5">
+      <div class="col-6">
+        <h2>Generator Run Time</h2>
+        <label for="timeStart">Pump Start Time:</label>
+        <input type="time" class="form-control timeStart" id="timeStart" name="timeStart">
 
+        <label for="timeEnd">Pump End Time:</label>
+        <input type="time" class="form-control timeEnd" id="timeEnd" name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
 
-     
-  </div>
-  <!-- 3rd row starts  -->
-  <div class="row mt-5">
-
-    <!-- column 1 -->
-    <div class="col-6">
-      <div class="mt-5">
-        <h2>Well Volume Calculation:</h2>
-        <form>
-          <div class="mb-3">
-              <label for="wellVolume" class="form-label">Well Volumes:</label>
-              <input type="number" value="5" min="0" class="form-control wellVolumes" id="wellVolume" name="wellVolume">
-          </div>
-          <div class="mb-3">
-            <label for="wellDiameter" class="form-label">Well Diamter (in):</label>
-            <input type="number" value="6" class="form-control wellDiameter" id="wellDiameter" name="wellDiameter">
-          </div>
-          <div class="mb-3">
-            <label for="wellDepth" class="form-label">Depth of Well (ft):</label>
-            <input type="number" step="0.01" class="form-control wellDepth" id="wellDepth" placeholder= 0.00 name="wellDepth">
-          </div>
-          <div class="mb-3">
-            <label for="cSWL" class="form-label">Corrected SWL (ft):</label>
-            <input type="number" step="0.01" class="form-control corrSWL" id="cSWL" placeholder= 0.00 name="cSWL" onchange="calcPurgeVolume(),  calcEstimatedPurgeTime()">
-          </div>
-          <div class="mb-3">
-            <label for="purgeVolume" class="form-label">Calculated Purge Volume (gal):</label>
-            <input type="number" step="0.01" class="form-control purgeVolume" id="purgeVolume" placeholder= 0.00 name="purgeVolume">
-          </div>
-        </form>
+        <label for="timeTotal">Total Pump Time (min):</label>
+        <input type="number" class="form-control timeTotal" id="timeTotal" name="timeTotal">
       </div>
 
-    </div>
-    <!-- column 2 -->
-    <div class="col-6">
-      <div class="mt-5">
-        <form>
-          <label for="estPurgeTime" class="form-label">Estimated Purge Time (min):</label>
-            <input type="number" step="0.01" class="form-control estPurgeTime" id="estPurgeTime" placeholder= 0.00 name="estPurgeTime">
-        </form>
+      <div class="col-6">
+        <h3>Average Discharge</h3>
+        <label for="averageDischarge">Total (gal) / Total (min):</label>
+        <input type="number" step="0.01" class="form-control averageDischarge" id="averageDischarge" name="averageDischarge">
       </div>
-      
-
     </div>
 
-  </div>
-  <!-- 4th row starts  -->
-  <div class="row mt-5">
+    <div class="row mt-5">
+      <div class="col-6">
+        <h2>Well Volume Calculation</h2>
+        <label for="wellVolume">Well Volumes:</label>
+        <input type="number" class="form-control wellVolume" id="wellVolume" name="wellVolume" value="5">
 
-    <!-- column 1 -->
-    <div class="">
-      <form action="">
+        <label for="wellDiameter">Well Diameter (in):</label>
+        <input type="number" class="form-control wellDiameter" id="wellDiameter" name="wellDiameter" value="6">
+
+        <label for="wellDepth">Depth of Well (ft):</label>
+        <input type="number" step="0.01" class="form-control wellDepth" id="wellDepth" name="wellDepth" onchange="calcPurgeVolume(), calcEstimatedPurgeTime()">
+
+        <!-- <label for="cSWL">Corrected SWL (ft):</label>
+        <input type="number" step="0.01" class="form-control cSWL" id="cSWL" name="cSWL"> -->
+
+        <label for="purgeVolume">Calculated Purge Volume (gal):</label>
+        <input type="number" step="0.01" class="form-control purgeVolume" id="purgeVolume" name="purgeVolume">
+      </div>
+
+      <div class="col-6">
+        <label for="estPurgeTime">Estimated Purge Time (min):</label>
+        <input type="number" step="0.01" class="form-control estPurgeTime" id="estPurgeTime" name="estPurgeTime">
+      </div>
+    </div>
+
+    <!-- Table for Sample Measurements -->
+    <div class="row mt-5">
+      <div class="col">
+        <h3>Field Measurements</h3>
         <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Time:</th>
-              <th scope="col">Temp:</th>
-              <th scope="col">EC:</th>
-              <th scope="col">pH:</th>
-              <th scope="col">Turbidity:</th>
-              <th scope="col">Corrected PWL:</th>
+              <th>#</th><th>Time</th><th>Temp</th><th>EC</th><th>pH</th><th>Turbidity</th><th>Corrected PWL</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row"></th>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-            </tr>
-            <tr>
-              <th scope="row"></th>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-              <td><input type="text" ></td>
-            </tr>         
-            
+            <% for (let i = 0; i < 5; i++) { %>
+              <tr>
+                <th><%= i + 1 %></th>
+                <td><input type="text" name="readings[<%= i %>][time]"></td>
+                <td><input type="number" name="readings[<%= i %>][temp]"></td>
+                <td><input type="number" name="readings[<%= i %>][ec]"></td>
+                <td><input type="number" name="readings[<%= i %>][ph]"></td>
+                <td><input type="number" name="readings[<%= i %>][turbidity]"></td>
+                <td><input type="number" name="readings[<%= i %>][correctedPWL]"></td>
+              </tr>
+            <% } %>
           </tbody>
         </table>
-        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-      </form>
-      
-
-    </div>
-    <!-- column 2 -->
-    <!-- <div class="col-6">
-      <div class="mt-5">
-        <form>
-          <label for="estPurgeTime" class="form-label">Estimated Purge Time:</label>
-            <input type="number" step="0.01" class="form-control estPurgeTime" id="estPurgeTime" placeholder= 0.00 name="estPurgeTime">
-        </form>
       </div>
-      
+    </div>
 
-    </div> -->
-
-  </div>
-
-
+    <!-- Final Submit -->
+    <div class="row mt-4">
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Submit All Data</button>
+      </div>
+    </div>
+  </form>
 </div>
+
 <%- include('partials/footer') -%>

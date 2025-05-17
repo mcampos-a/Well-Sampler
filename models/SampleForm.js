@@ -28,6 +28,26 @@ const WellFormSchema = new mongoose.Schema({
     cSWL: {
         type: Number,
         required: true
+    },
+    totalizerTotal : {
+        type: Number,
+        required: true
+    },
+    timeTotal : {
+        type: Number,
+        required: true
+    },
+    averageDischarge : {
+        type: Number,
+        required: true
+    },
+    purgeVolume : {
+        type: Number,
+        required: true
+    },
+    estPurgeTime : {
+        type: Number,
+        required: true
     }
 })
 

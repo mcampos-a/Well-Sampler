@@ -51,7 +51,12 @@ module.exports = {
                 sampler: req.body.sampler,
                 swl: req.body.swl,
                 correction: req.body.correction,
-                cSWL: req.body.correctedSWL
+                cSWL: req.body.correctedSWL,
+                totalizerTotal: req.body.totalizerTotal,
+                timeTotal: req.body.timeTotal,
+                averageDischarge: req.body.averageDischarge,
+                purgeVolume: req.body.purgeVolume,
+                estPurgeTime: req.body.estPurgeTime,
         })
         try {
         await newSampleEvent.save();
