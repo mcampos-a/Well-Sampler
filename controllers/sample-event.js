@@ -30,6 +30,12 @@ module.exports = {
     //     console.log(err);
     //     }
     // },
+    
+//get request for the sample history
+    getSampleHistory: (req, res) => {
+      res.render("sample-history.ejs")
+    },
+//get request for a new blank sampling from
     getSamplingForm : async (req, res) => {
         try {
             //   const profile = await Post.find({ user: req.user.id }); //used to find the posts of the user linked to user ID

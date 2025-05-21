@@ -57,6 +57,7 @@ app.use('/', mainRoutes)
 app.use('/well-list', wellListRoutes)
 app.use('/edit', editRoutes)
 app.use("/sample-event", sampleEventRoutes)
+app.use("/sample-history", mainRoutes)
 
 //todo - Start Server
 app.listen(process.env.PORT, () => {
