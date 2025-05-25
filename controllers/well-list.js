@@ -22,7 +22,10 @@ module.exports = {
         //     } catch (err) {
         //       console.log(err);
         //     }
-         const newWell = new WellList(
+         
+            try {
+                
+                const newWell = new WellList(
                 {
                     wellName: req.body.wellName,
                     swl: req.body.swl,
@@ -30,7 +33,7 @@ module.exports = {
                     dateConstructed: req.body.dateConstructed
                 }
             )
-            try {
+
                 await newWell.save()
                 console.log('well added to database')
                 res.redirect('/well-list')
