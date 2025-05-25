@@ -32,8 +32,14 @@ module.exports = {
     // },
     
 //get request for the sample history
-    getSampleHistory: (req, res) => {
-      res.render("sample-history.ejs")
+    getSampleHistory: async (req, res) => {
+        try{
+            const sampleEvents = await SampleEvent.find()
+            res.render('sample-history.ejs', {eventList: sampleEvents})
+        } catch (err){
+            if (err) return res.status(500).send(err)
+        }
+      
     },
 //get request for a new blank sampling from
     getSamplingForm : async (req, res) => {

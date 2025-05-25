@@ -22,7 +22,7 @@
         <% wellList.forEach(well => { %>
             <li>
                 <div><%= well.wellName %></div>
-                <div><%= well.cSWL %></div>
+                <div><%= well.correction %></div>
                 <a href="/edit/<%= well._id %>">Edit</a>
                 <a href="/edit/remove/<%= well._id %>">Remove</a>
             </li>
