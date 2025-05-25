@@ -29,6 +29,30 @@
         <% }) %>
         
     </ul>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th>Well Name</th>
+            <th>Date Constructed</th>
+            <th>Well Depth</th>
+            <th>Correction</th>
+            <th>Water level</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% wellList.forEach(well => { %>
+            <tr>
+                <td><%= well.wellName %></td>
+                <td><%= well.dateConstructed %></td>
+                <td><%= well.wellDepth %></td>
+                <td><%= well.correction %></td>
+                <td><%= well.cSWL %></td>
+                <td><%= well.correction %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
 
     <ul>
         <a href="/profile" class="col-1 btn btn-primary">Back to Profile</a>
