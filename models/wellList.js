@@ -23,10 +23,11 @@ const WellListSchema = new mongoose.Schema({
     },
     dateConstructed: {
         type: Date,
+        required: true,
     },
     wellDepth: {
         type: Number,
-        
+        required: true,
     }
 })
 

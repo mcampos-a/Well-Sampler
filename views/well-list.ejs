@@ -9,12 +9,17 @@
         <label for="dateConstructed">Enter Well Construction Date:</label>
         <input type="date" name="dateConstructed" id="dateConstructed" placeholder="1992">
         <br>
+        <label for="wellDepth">Enter Well Depth:</label>
+        <input type="number" name="wellDepth" id="wellDepth" value = 0.00 step="0.01">
+        <br>
         <label for="swl">Enter Staic Water Level:</label>
         <input type="number" name="swl" id="swl" value = 0.00 min="0" placeholder="210" step="0.01">
         <br>
         <label for="correction">Enter Correction:</label>
         <input type="number" name="correction" id="correction" value = 0.00 step="0.01">
+        
         <button type="submit" class="btn btn-secondary">Add Well</button>
+        
     </form>
     <br>
 
@@ -33,10 +38,10 @@
         <thead>
             <tr>
             <th>Well Name</th>
-            <th>Date Constructed</th>
             <th>Well Depth</th>
             <th>Correction</th>
             <th>Water level</th>
+            <th>Date Constructed</th>
             </tr>
         </thead>
 
@@ -44,11 +49,10 @@
             <% wellList.forEach(well => { %>
             <tr>
                 <td><%= well.wellName %></td>
-                <td><%= well.dateConstructed %></td>
                 <td><%= well.wellDepth %></td>
                 <td><%= well.correction %></td>
-                <td><%= well.cSWL %></td>
-                <td><%= well.correction %></td>
+                <td><%= well.swl %></td>
+                <td><%= well.dateConstructed %></td>
             </tr>
             <% }); %>
         </tbody>

@@ -29,7 +29,8 @@ module.exports = {
                     wellName: req.body.wellName,
                     swl: req.body.swl,
                     correction: req.body.correction,
-                    dateConstructed: req.body.dateConstructed
+                    dateConstructed: req.body.dateConstructed,
+                    wellDepth: req.body.wellDepth
                 }
             )
             console.log(update)
