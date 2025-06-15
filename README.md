@@ -1,6 +1,7 @@
 # Well Sampler
 
-![image]()
+![Well-Sampler-Thumbnail](https://github.com/user-attachments/assets/5602a282-7e86-49b9-a4dd-df687dd32942)
+
 
 A tool built by a water professional passionate about technology for water professionals. A useful tool to track, calculate, and store well sampling data.
 <!-- **[Profile]()** -->
