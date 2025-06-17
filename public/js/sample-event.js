@@ -72,7 +72,9 @@ function calcPurgeVolume(){
 }
 
 function calcEstimatedPurgeTime(){
-  let purgeTime = calcPurgeVolume() / calcAverageDischarge()
+  let estimatedDischargeRate = document.querySelector('.estDischargeRate').value
+
+  let purgeTime = calcPurgeVolume() / estimatedDischargeRate
 
   document.querySelector('.estPurgeTime').value = Number(purgeTime.toFixed(2))
   console.log(purgeTime)
