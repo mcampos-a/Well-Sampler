@@ -76,38 +76,7 @@
           <input type="text" name="otherText" class="form-control" placeholder="Specify if other">
         </div>
 
-        <div class="mt-5">
-          <h3>Well Water Pumped</h3>
-          <label for="totalizerStart">Totalizer Start (gal):</label>
-          <input type="number" step="0.01" class="form-control totalizerStart" id="totalizerStart" name="totalizerStart">
-          
-          <label for="totalizerEnd">Totalizer End (gal):</label>
-          <input type="number" step="0.01" class="form-control totalizerEnd" id="totalizerEnd" name="totalizerEnd" onchange="calcTotalizerTotal()">
-
-
-          <label for="totalizerTotal">Totalizer Total (gal):</label>
-          <input type="number" step="0.01" class="form-control totalizerTotal" id="totalizerTotal" name="totalizerTotal">
-        </div>
-      </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-6">
-        <h2>Generator Run Time</h2>
-        <label for="timeStart">Pump Start Time:</label>
-        <input type="time" class="form-control timeStart" id="timeStart" name="timeStart">
-
-        <label for="timeEnd">Pump End Time:</label>
-        <input type="time" class="form-control timeEnd" id="timeEnd" name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
-
-        <label for="timeTotal">Total Pump Time (min):</label>
-        <input type="number" class="form-control timeTotal" id="timeTotal" name="timeTotal">
-      </div>
-
-      <div class="col-6">
-        <h3>Average Discharge</h3>
-        <label for="averageDischarge">Total (gal) / Total (min):</label>
-        <input type="number" step="0.01" class="form-control averageDischarge" id="averageDischarge" name="averageDischarge">
+        
       </div>
     </div>
 
@@ -135,6 +104,40 @@
         <input type="number" step="0.01" class="form-control estPurgeTime" id="estPurgeTime" name="estPurgeTime">
       </div>
     </div>
+
+    <div class="row mt-5">
+      <div class="col-6">
+          <h3>Well Water Pumped</h3>
+          <label for="totalizerStart">Totalizer Start (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerStart" id="totalizerStart" name="totalizerStart">
+          
+          <label for="totalizerEnd">Totalizer End (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerEnd" id="totalizerEnd" name="totalizerEnd" onchange="calcTotalizerTotal()">
+
+
+          <label for="totalizerTotal">Totalizer Total (gal):</label>
+          <input type="number" step="0.01" class="form-control totalizerTotal" id="totalizerTotal" name="totalizerTotal">
+        </div>
+      <div class="col-6">
+        <h3>Generator Run Time</h2>
+        <label for="timeStart">Pump Start Time:</label>
+        <input type="time" class="form-control timeStart" id="timeStart" name="timeStart">
+
+        <label for="timeEnd">Pump End Time:</label>
+        <input type="time" class="form-control timeEnd" id="timeEnd" name="timeEnd" onchange="calcTimeTotal(), calcAverageDischarge()">
+
+        <label for="timeTotal">Total Pump Time (min):</label>
+        <input type="number" class="form-control timeTotal" id="timeTotal" name="timeTotal">
+      </div>
+
+      <div class="col-6">
+        <h3>Average Discharge</h3>
+        <label for="averageDischarge">Total (gal) / Total (min):</label>
+        <input type="number" step="0.01" class="form-control averageDischarge" id="averageDischarge" name="averageDischarge">
+      </div>
+    </div>
+
+    
 
     <!-- Table for Sample Measurements -->
     <div class="row mt-5">
