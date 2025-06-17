@@ -9,6 +9,7 @@
             <th>Date Sampled</th>
             <th>Sampler</th>
             <th>Total Volume Pumped</th>
+            <th>Discharge Rate (gal/min)</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                 <td><%= sampleEvent.dateSampled %></td>
                 <td><%= sampleEvent.sampler %></td>
                 <td><%= sampleEvent.totalizerTotal %></td>
+                <td><%= sampleEvent.averageDischarge %></td>
             </tr>
             <% }); %>
         </tbody>
