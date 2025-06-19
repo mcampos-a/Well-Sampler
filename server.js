@@ -23,8 +23,8 @@ require("./config/passport")(passport)
 
 connectDB()//Connect to Database
 
-//todo - Set Middleware
-app.set("view engine", "ejs") //lets our app know to set ejs as out templating language - this will be used to serve up html files for responces
+//Sets Middleware
+app.set("view engine", "ejs") //lets the app know to set ejs as out templating language - this will be used to serve up html files for responces
 app.use(express.static("public")) //lets express know that it can look into the public folder for client side css and js files
 app.use(express.urlencoded({extended: true})) //makes sure we can parse post url to extract data from web forms
 app.use(express.json())
@@ -52,14 +52,14 @@ app.use(passport.session())
 //Use flash messages for errors, info, ect
 app.use(flash())
 
-//todo - Set Routes
+//Sets Routes
 app.use('/', mainRoutes)
 app.use('/well-list', wellListRoutes)
 app.use('/edit', editRoutes)
 app.use("/sample-event", sampleEventRoutes)
 app.use("/sample-history", mainRoutes)
 
-//todo - Start Server
+//Starts Server
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 })
