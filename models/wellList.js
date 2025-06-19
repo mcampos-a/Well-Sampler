@@ -31,4 +31,4 @@ const WellListSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('WellList', WellListSchema, 'wells') //take bluprint we created, package it up, reference name, schema, and collection. This is the order of what things are called.
+module.exports = mongoose.model('WellList', WellListSchema, 'wells') //take bluprint created, package it up, reference name, schema, and collection. This is the order of what things are called.
